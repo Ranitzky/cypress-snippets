@@ -1,0 +1,44 @@
+{
+  "before": {
+    "prefix": "be",
+    "body": [
+      "before(() => {",
+      "\t\t${1://Runs once before any of the individual tests};",
+      "});",
+      "",
+      "$0"
+    ],
+    "description": "beforeEach"
+  },
+  "beforeEach": {
+    "prefix": "bfe",
+    "body": [
+      "beforeEach(() => {",
+      "\t\t${1://Runs before each individual test};",
+      "});",
+      "",
+      "$0"
+    ],
+    "description": "beforeEach"
+  },
+  "describe": {
+    "prefix": "dsb",
+    "body": [
+      "describe('${1:Feature Name}', () => {",
+      "\t\t${2://Group tests by e.g. feature};",
+      "});",
+      "",
+      "$0"
+    ],
+    "description": "describe"
+  },
+  "it": {
+    "prefix": "it",
+    "body": [
+      "it('${1:Test case name}', () => {",
+      "\t\t$0",
+      "});"
+    ],
+    "description": "it"
+  },
+}
