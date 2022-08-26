@@ -3,32 +3,61 @@
     "prefix": "be",
     "body": [
       "before(() => {",
-      "\t\t${1://Runs once before any of the individual tests};",
+      "\t\t${1:// Runs once before any of the individual tests}",
       "});",
       "",
       "$0"
     ],
     "description": "beforeEach"
+  },
+  "after": {
+    "prefix": "af",
+    "body": [
+      "after(() => {",
+      "\t\t${1:// Runs once after all of the individual tests}",
+      "});",
+      "",
+      "$0"
+    ],
+    "description": "afterEach"
+  },
+  "afterEach": {
+    "prefix": "afe",
+    "body": [
+      "afterAll(() => {",
+      "\t\t${1:// Runs after each individual test}",
+      "});",
+      "",
+      "$0"
+    ],
+    "description": "afterAll"
   },
   "beforeEach": {
     "prefix": "bfe",
     "body": [
       "beforeEach(() => {",
-      "\t\t${1://Runs before each individual test};",
+      "\t\t${1:// Runs before each individual test}",
       "});",
       "",
       "$0"
     ],
     "description": "beforeEach"
   },
+  "context": {
+    "prefix": "ctx",
+    "body": [
+      "context('${1:Context name}', () => {",
+      "\t\t${0:// Add test cases}",
+      "});"
+    ],
+    "description": "context"
+  },
   "describe": {
     "prefix": "dsb",
     "body": [
-      "describe('${1:Feature Name}', () => {",
-      "\t\t${2://Group tests by e.g. feature};",
-      "});",
-      "",
-      "$0"
+      "describe('${1:Feature name}', () => {",
+      "\t\t${0:// Group tests by e.g. feature}",
+      "});"
     ],
     "description": "describe"
   },
@@ -36,7 +65,7 @@
     "prefix": "it",
     "body": [
       "it('${1:Test case name}', () => {",
-      "\t\t$0",
+      "\t\t${0:// Add Cypress steps here}",
       "});"
     ],
     "description": "it"
