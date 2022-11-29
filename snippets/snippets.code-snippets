@@ -1,4 +1,5 @@
 {
+  // mocha
   "before": {
     "prefix": "be",
     "body": [
@@ -70,4 +71,41 @@
     ],
     "description": "it"
   },
+  // cypress
+  "get": {
+    "prefix": "cyg",
+    "body": "cy.get('$1');$0",
+    "description": "get"
+  },
+  "visit": {
+    "prefix": "cyv",
+    "body": "cy.visit('$1');$0",
+    "description": "visit"
+  },
+  "request": {
+    "prefix": "cyreq",
+    "body": [
+      "cy.request({",
+      "\tmethod: '$1',",
+      "\turl: '$2',",
+      "\theaders: { $3 },",
+      "\tbody: { $4 },",
+      "});",
+      "$0"
+    ],
+    "description": "request"
+  },
+  "viewport": {
+    "prefix": "cyvp",
+    "body": [
+      "cy.viewport($1);$0",
+    ],
+    "description": "viewport"
+  },
+  "wait": {
+    "prefix": "cywt",
+    "body": "cy.wait('$1');$0",
+    "description": "wait"
+  },
+
 }
