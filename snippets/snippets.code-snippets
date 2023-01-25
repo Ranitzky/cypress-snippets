@@ -54,7 +54,7 @@
     "description": "context"
   },
   "describe": {
-    "prefix": "dsb",
+    "prefix": "dsc",
     "body": [
       "describe('${1:Feature name}', () => {",
       "\t\t${0:// Group tests by e.g. feature}",

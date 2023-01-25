@@ -2,7 +2,7 @@
     "name": "cypress-snippets",
     "displayName": "cypress-snippets",
     "description": "Snippets for Cypress",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "ricowilcke",
     "license": "MIT",
     "engines": {
