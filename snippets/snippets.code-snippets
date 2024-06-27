@@ -1,111 +1,269 @@
 {
   // mocha
-  "before": {
-    "prefix": "be",
+"describe": {
+    "prefix": "@describe",
     "body": [
-      "before(() => {",
-      "\t\t${1:// Runs once before any of the individual tests}",
-      "});",
-      "",
-      "$0"
+      "describe('$1', () => {",
+      "\t$0",
+      "});"
     ],
-    "description": "beforeEach"
-  },
-  "after": {
-    "prefix": "af",
-    "body": [
-      "after(() => {",
-      "\t\t${1:// Runs once after all of the individual tests}",
-      "});",
-      "",
-      "$0"
-    ],
-    "description": "afterEach"
-  },
-  "afterEach": {
-    "prefix": "afe",
-    "body": [
-      "afterAll(() => {",
-      "\t\t${1:// Runs after each individual test}",
-      "});",
-      "",
-      "$0"
-    ],
-    "description": "afterAll"
-  },
-  "beforeEach": {
-    "prefix": "bfe",
-    "body": [
-      "beforeEach(() => {",
-      "\t\t${1:// Runs before each individual test}",
-      "});",
-      "",
-      "$0"
-    ],
-    "description": "beforeEach"
+    "description": "Mocha describe block"
   },
   "context": {
-    "prefix": "ctx",
+    "prefix": "@context",
     "body": [
-      "context('${1:Context name}', () => {",
-      "\t\t${0:// Add test cases}",
+      "context('$1', () => {",
+      "\t$0",
       "});"
     ],
-    "description": "context"
-  },
-  "describe": {
-    "prefix": "dsc",
-    "body": [
-      "describe('${1:Feature name}', () => {",
-      "\t\t${0:// Group tests by e.g. feature}",
-      "});"
-    ],
-    "description": "describe"
+    "description": "Mocha context block"
   },
   "it": {
-    "prefix": "it",
+    "prefix": "@it",
     "body": [
-      "it('${1:Test case name}', () => {",
-      "\t\t${0:// Add Cypress steps here}",
+      "it('$1', () => {",
+      "\t$0",
       "});"
     ],
-    "description": "it"
+    "description": "Mocha it block"
+  },
+  "before": {
+    "prefix": "@before",
+    "body": [
+      "before(() => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha before hook"
+  },
+  "beforeEach": {
+    "prefix": "@beforeEach",
+    "body": [
+      "beforeEach(() => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha beforeEach hook"
+  },
+  "after": {
+    "prefix": "@after",
+    "body": [
+      "after(() => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha after hook"
+  },
+  "afterEach": {
+    "prefix": "@afterEach",
+    "body": [
+      "afterEach(() => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha afterEach hook"
+  },
+  "describe only": {
+    "prefix": "@describeOnly",
+    "body": [
+      "describe.only('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha describe.only block"
+  },
+  "describe skip": {
+    "prefix": "@describeSkip",
+    "body": [
+      "describe.skip('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha describe.skip block"
+  },
+  "it only": {
+    "prefix": "@itOnly",
+    "body": [
+      "it.only('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha it.only block"
+  },
+  "it skip": {
+    "prefix": "@itSkip",
+    "body": [
+      "it.skip('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Mocha it.skip block"
   },
   // cypress
-  "get": {
-    "prefix": "cyg",
-    "body": "cy.get('$1');$0",
-    "description": "get"
-  },
-  "visit": {
-    "prefix": "cyv",
-    "body": "cy.visit('$1');$0",
-    "description": "visit"
-  },
-  "request": {
-    "prefix": "cyreq",
+  "cy.visit": {
+    "prefix": "@visit",
     "body": [
-      "cy.request({",
-      "\tmethod: '$1',",
-      "\turl: '$2',",
-      "\theaders: { $3 },",
-      "\tbody: { $4 },",
-      "});",
-      "$0"
+      "cy.visit('$1');"
     ],
-    "description": "request"
+    "description": "Cypress visit command"
   },
-  "viewport": {
-    "prefix": "cyvp",
+  "cy.get": {
+    "prefix": "@get",
     "body": [
-      "cy.viewport($1);$0",
+      "cy.get('$1')"
     ],
-    "description": "viewport"
+    "description": "Cypress get command"
   },
-  "wait": {
-    "prefix": "cywt",
-    "body": "cy.wait('$1');$0",
-    "description": "wait"
+  "cy.contains": {
+    "prefix": "@contains",
+    "body": [
+      "cy.contains('$1')"
+    ],
+    "description": "Cypress contains command"
   },
-
+  "cy.wait": {
+    "prefix": "@wait",
+    "body": [
+      "cy.wait($1);"
+    ],
+    "description": "Cypress wait command"
+  },
+  "cy.viewport": {
+    "prefix": "@viewport",
+    "body": [
+      "cy.viewport($1, $2);"
+    ],
+    "description": "Cypress viewport command"
+  },
+  "cy.request": {
+    "prefix": "@request",
+    "body": [
+      "cy.request('$1').then((response) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Cypress request command"
+  },
+  "cy.scrollTo": {
+    "prefix": "@scrollTo",
+    "body": [
+      "cy.scrollTo('$1', {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Cypress scrollTo command"
+  },
+  // chai
+  "should be visible": {
+    "prefix": "@shouldVisible",
+    "body": [
+      "should('be.visible')"
+    ],
+    "description": "Assert element is visible"
+  },
+  "should not be visible": {
+    "prefix": "@shouldNotVisible",
+    "body": [
+      "should('not.be.visible')"
+    ],
+    "description": "Assert element is not visible"
+  },
+  "should contain text": {
+    "prefix": "@shouldContainText",
+    "body": [
+      "should('contain.text', '$1')"
+    ],
+    "description": "Assert element contains text"
+  },
+  "should have class": {
+    "prefix": "@shouldHaveClass",
+    "body": [
+      "should('have.class', '$1')"
+    ],
+    "description": "Assert element has a specific class"
+  },
+  "should have id": {
+    "prefix": "@shouldHaveId",
+    "body": [
+      "should('have.id', '$1')"
+    ],
+    "description": "Assert element has a specific id"
+  },
+  "should have attribute": {
+    "prefix": "@shouldHaveAttr",
+    "body": [
+      "should('have.attr', '$1', '$2')"
+    ],
+    "description": "Assert element has a specific attribute"
+  },
+  "should have value": {
+    "prefix": "@shouldHaveValue",
+    "body": [
+      "should('have.value', '$1')"
+    ],
+    "description": "Assert element has a specific value"
+  },
+  "should be checked": {
+    "prefix": "@shouldBeChecked",
+    "body": [
+      "should('be.checked')"
+    ],
+    "description": "Assert checkbox is checked"
+  },
+  "should not be checked": {
+    "prefix": "@shouldNotBeChecked",
+    "body": [
+      "should('not.be.checked')"
+    ],
+    "description": "Assert checkbox is not checked"
+  },
+  "should be disabled": {
+    "prefix": "@shouldBeDisabled",
+    "body": [
+      "should('be.disabled')"
+    ],
+    "description": "Assert element is disabled"
+  },
+  "should not be disabled": {
+    "prefix": "@shouldNotBeDisabled",
+    "body": [
+      "should('not.be.disabled')"
+    ],
+    "description": "Assert element is not disabled"
+  },
+  "should exist": {
+    "prefix": "@shouldExist",
+    "body": [
+      "should('exist')"
+    ],
+    "description": "Assert element exists"
+  },
+  "should not exist": {
+    "prefix": "@shouldNotExist",
+    "body": [
+      "should('not.exist')"
+    ],
+    "description": "Assert element does not exist"
+  },
+  "should be empty": {
+    "prefix": "@shouldBeEmpty",
+    "body": [
+      "should('be.empty')"
+    ],
+    "description": "Assert element is empty"
+  },
+  "should not be empty": {
+    "prefix": "@shouldNotBeEmpty",
+    "body": [
+      "should('not.be.empty')"
+    ],
+    "description": "Assert element is not empty"
+  },
+  "should have css": {
+    "prefix": "@shouldHaveCss",
+    "body": [
+      "should('have.css', '$1', '$2')"
+    ],
+    "description": "Assert element has specific CSS property and value"
+  },
 }
